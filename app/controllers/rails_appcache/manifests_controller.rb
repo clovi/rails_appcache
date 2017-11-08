@@ -5,8 +5,12 @@ class RailsAppcache::ManifestsController < RailsAppcache::ApplicationController
   before_filter :check_caching_enabled
 
   def show
+    puts "params = #{params}"
+    puts "Version Strings #{params[:version]} vs #{appcache_version_string}"
     if params[:version] == appcache_version_string
+      puts "manifest #{params[:manifest]} event_slug #{params[:event_slug]}"
       # This is a request from a current version of the page
+      @event_slug = params[:event_slug]	
       render params[:manifest]
     else
       # This is a request from an obsolete page, using an obsolete manifest
