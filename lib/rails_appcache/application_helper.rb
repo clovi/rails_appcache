@@ -21,7 +21,6 @@ module RailsAppcache
 
     def javascript_cache_path(*paths)
       tags = javascript_include_tag(*paths)
-      puts "TARGS = #{tags.inspect}"
       tags.scan(/src="(.*?)"/).map do |match|
         match[0].html_safe
       end.join("\n")
