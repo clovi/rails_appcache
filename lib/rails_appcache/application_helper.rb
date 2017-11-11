@@ -3,7 +3,7 @@ module RailsAppcache
     def appcache_manifest_path(path)
       return "" unless RailsAppcache.config.perform_caching?
 
-      "/#{path}-#{appcache_version_string}.appcache"
+      "/#{path}*#{appcache_version_string}.appcache"
     end
 
     # In development, serve up a new manifest every time
