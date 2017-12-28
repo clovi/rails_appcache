@@ -2,7 +2,7 @@
 class RailsAppcache::ManifestsController < RailsAppcache::ApplicationController
   include RailsAppcache::ApplicationHelper
 
-  before_filter :check_caching_enabled
+  before_action :check_caching_enabled
 
   def show
     puts "params = #{params}"
